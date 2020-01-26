@@ -2,67 +2,231 @@
 * {
     margin: 0;
     padding: 0;
-  }
-  /*Import the font and set the default size*/
-  html {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 62.5%;
-  }
-  
-  header {
-    height: 90vh;
-    width: 100%;
-    color: #fff;
-    font-weight: 600;
-    line-height: 1.6;
-  
-    letter-spacing: .75rem;
-    background-image: linear-gradient(to top, rgba(0,0,0,0.1)0%, rgba(0,0,99,.5)90%), url(../images/apple-pie.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    text-shadow: 0 1rem 5rem rgba(0, 0, 0, 1);
+}
 
-  
-    display: flex;
-    justify-content: center;
+@font-face {
+  font-family: "Helvetica";
+  src: url("../fonts/Helvetica.ttf");
+}
+
+
+/*Import the font and set the default size*/
+html {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 1600px){
+  html {
+    font-size: 50%;
+  }
+  main {
+    padding: 4rem 10rem !important;
+  }
+  .info {
+    transform: scale(.75) translateX(-30rem);
+  }
+  .pie--ingredients {
+    transform: scale(.7);
+  }
+}
+@media only screen and (max-width: 1200px){
+  html {
+    font-size: 50%;
+  }
+  main {
+    padding: 4rem 10rem !important;
+  }
+  .info {
+    transform: scale(.75) translateX(-30rem);
+    margin: 0 auto !important;
+  }
+  .pie--ingredients {
+    display: inline-block;
+    margin: 0 !important;
+    width: 100%;
+    transform: scale(.8) !important;
+  }
+  .ingredients{
+    display: block !important;
+  }
+}
+@media only screen and (max-width: 900px){
+  html {
+    font-size: 50%;
+  }
+  main {
+    padding: 4rem 10rem !important;
+  }
+  .info {
+    transform: scale(.75) translateX(-10rem);
+  }
+  .cooking--img {
+    transform: scale(.65) translateX(-10rem);
+  }
+  .gallery {
+    flex-direction: column;
+    width: 70%;
+    margin: 5rem auto !important;
     align-items: center;
   }
-  header h1 {
-    font-size: 8rem;
+}
+@media only screen and (max-width: 600px){
+  html {
+    font-size: 40%;
   }
-  
   main {
-    font-size: 2.7rem;
-    padding: 10rem 30rem;
-    background-color: #fff;
-    line-height: 1.5;
+    padding: 4rem 10rem !important;
   }
+  .info {
+    transform: scale(.5) translateX(-40rem);
+  }
+  .cooking--img {
+    transform: scale(.5) translateX(-25rem);
+  }
+  .pie--ingredients {
+    margin-bottom: 0 !important;
+  }
+}
+@media only screen and (max-width: 400px){
+  html {
+    font-size: 30%;
+  }
+  main {
+    padding: 10rem 5rem !important;
+  }
+  .info {
+    transform: scale(.4) translateX(-80rem);
+  }
+  .cooking--img {
+    transform: scale(.4) translateX(-60rem);
+  }
+}
+
+header {
+  height: 101vh;
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.6;
+
+  letter-spacing: .75rem;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.1)0%, rgba(0,0,0,.7)80%), url(../images/apple-pie.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  text-shadow: 0 1rem 5rem rgba(0, 0, 0, 1);
+
+
+  display: grid;
   
-  main > *:not(:last-child) {
-    margin-bottom: 5rem;
-  }
-  
-  main h2 {
-    font-size: 3rem;
-    padding: 3rem 0;
-  }
-  main img {
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .ingredients li {
-    list-style-type: disclosure-closed;
-    padding: 1rem
-  }
-  
-  ol,
-  ul {
-    padding-left: 5rem;
-  }
-  
-  .directions li {
-    list-style-type: revert;
-    padding: 1rem
-  }
+}
+header h1 {
+  font-size: 8rem;
+  text-transform: lowercase;
+  justify-self: center;
+  align-self: end;
+  letter-spacing: 1.3rem;
+}
+
+header .btns {
+  justify-self: center;
+}
+header .btns > * {
+  padding: 1rem 2rem;
+  margin: 3rem .75rem;
+  border-radius: 5%;
+  background-color: rgba(99,99,99, 0.5);
+  border: none;
+  color: #ddd;
+  font-size: 1.8rem;
+  transition: all .2s;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+header .btns > *:hover {
+  background-color: rgba(158, 158, 158, 0.5);
+  box-shadow: 0 2rem 3rem rgba(0,0,0,.8);
+  transform: translateY(-.3rem);
+}
+
+header .btns > *:active {
+  background-color: rgba(158, 158, 158, 0.5);
+  transform: translateY(0);
+}
+header .btns > *:focus {
+  outline: none;
+}
+
+main {
+  font-size: 2.7rem;
+  padding: 10rem 30rem;
+  background-color: #fff;
+  line-height: 1.5;
+}
+
+main > * {
+  margin-bottom: 5rem;
+}
+
+main h2 {
+  font-size: 3rem;
+  padding: 3rem 0;
+}
+main img {
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery {
+  display: flex;
+
+  justify-content: center;
+  grid-gap: 4rem;
+  margin: 7rem;
+}
+.gallery > * {
+  height: 20rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+.apple-pie-1 {
+  grid-column: 2/3;
+}
+.apple-pie-2 {
+  grid-column: 3/4;
+}
+.apple-pie-3 {
+  grid-column: 4/5;
+}
+
+.ingredients {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10rem 1fr;
+}
+
+.pie--ingredients {
+  grid-row: 1 / -1;
+  grid-column: 2 / 3;
+  margin-top: 15rem;
+  transform: scale(.8);
+}
+
+.ingredients li {
+  list-style-type: disclosure-closed;
+  padding: 1rem
+}
+
+ol,
+ul {
+  padding-left: 5rem;
+}
+
+.directions li {
+  list-style-type: revert;
+  padding: 1rem
+}
